@@ -1,2 +1,6 @@
-cs371p-voting
-=============
+# ignores files that gcov generates
+*.gcda
+*.gcno
+*.gcov
+
+time
