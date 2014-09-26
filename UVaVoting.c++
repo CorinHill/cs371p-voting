@@ -62,6 +62,7 @@ set<int> losers;
  * @param b an integer, the index of the other element to swap
  */
 void swap_entrants(int a, int b) {
+    if( a==b ) return;
     int tmp = can_ordered[a];
     can_ordered[a] = can_ordered[b];
     can_ordered[b] = tmp;
@@ -77,20 +78,17 @@ void swap_entrants(int a, int b) {
  */
 void quicksort(int s, int e) {
     if(s < e) {
-        int p = (s+e)>>1;
-        int i=s, j=e;
-        while( i<=j ) {
-            while(i <= e && 
-                candidates[can_ordered[i]] > candidates[can_ordered[p]]) ++i;
-            while(j >= s && 
-                candidates[can_ordered[j]] < candidates[can_ordered[p]]) --j;
-            if (i <= j) {
+        int i = s, j = s;
+        while( i < e ) {
+            if( candidates[can_ordered[i]] > candidates[can_ordered[e]] ) {
                 swap_entrants(i, j);
-                ++i; --j;
+                ++j;
             }
+            ++i;
         }
-        quicksort(s, p-1);
-        quicksort(p+1, e);
+        swap_entrants(e, j);
+        quicksort(s, j-1);
+        quicksort(j+1, e);
     }
 }
 
@@ -102,11 +100,13 @@ void quicksort(int s, int e) {
  * @param o an ostream, to which the name of one candidate will be printed
  * @param index an integer, the index of the candidate whose name will be printed
  */
-void print_winner(ostream& o, int index) {
-    assert(index >= 0); assert(index < 20);
-    char* c = candidates[index].name;
-    while( *c )
-        o << *(c++);
+void print_winner(ostream& o, int slot) {
+    assert(slot >= 0); assert(slot < 20);
+    char* c = candidates[slot].name;
+    while( *c ) {
+        o.put(*c);
+        c++;
+    }
     o << endl;
 }
 
@@ -118,11 +118,13 @@ void print_winner(ostream& o, int index) {
  * @param o an ostream, to which winners are printed
  */
 void voting_print(ostream& o) {
-    int i = 0;
+    quicksort(0, numcan-1);
+    int slot = 0;
     int v = candidates[can_ordered[0]].votes;
-    while(i < 21 && candidates[can_ordered[i]].votes == v) {
-        print_winner(o, can_ordered[i]);
-        ++i;
+    while(slot < numcan) {
+        if( candidates[slot].votes == v )
+            print_winner(o, slot);
+        ++slot;
     }
 }
 
@@ -175,10 +177,13 @@ void count_votes(int remaining) {
 
     int it = remaining - 1;
     while( candidates[can_ordered[it]].votes == botsize && it > 0 ) {
+        --it;
+    }
+    int r = remaining;
+    while( ++it < r ) {
         losers.insert( can_ordered[it] );
         reassign_ballots(can_ordered[it], --remaining);
         candidates[can_ordered[it]].votes = 0;
-        --it;
     }
     count_votes(remaining);
 }
@@ -194,7 +199,6 @@ void voting_read(istream& i) {
     i >> numcan;
     i.ignore();
     int n = 0, m = 0;
-    char c = '\000';
     string tmp;
     istringstream iss;
     while( n < 20 ) {
@@ -239,10 +243,10 @@ void voting_solve(istream& i, ostream& o) {
     int elections;
     i >> elections;
     while(elections > 0) {
+        losers.clear();
         voting_read(i);
         for( int n = 0; n < numbal; ++n ) {
             int index = ballotmatrix[n][0] - 1;
-            if( candidates[index].votes > (numbal>>1) ) break;
             candidates[index].ballots[candidates[index].votes] = n;
             candidates[index].votes += 1;
         }    

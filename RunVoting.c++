@@ -15,8 +15,8 @@
 // --------
 
 #include <iostream> // cin, cout
-
 #include "Voting.h"
+
 
 // ----
 // main
