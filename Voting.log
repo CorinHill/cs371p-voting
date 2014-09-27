@@ -1,0 +1,71 @@
+commit ef8938be09d00e3340b486f6375eda047966bc64
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Fri Sep 26 19:25:26 2014 -0500
+
+    doxygen
+
+commit 321bbde96dda11b2eb26187e06b9246efd6437f5
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Fri Sep 26 19:22:53 2014 -0500
+
+    Added unit tests
+
+commit 4678c30003d7b8bc17bd73e505322a71de1684bf
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Fri Sep 26 18:31:29 2014 -0500
+
+    More files
+
+commit 234a50fd6daa4b5aaeb82adec7645edf423fb030
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Fri Sep 26 18:31:07 2014 -0500
+
+    Accepted! yay.
+
+commit 581d5fc8494a9b2e3fab17bcbd0650d6daba5d4d
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Fri Sep 26 14:35:20 2014 -0500
+
+    Fixed a couple of bugs
+
+commit c0bbc740574d9e1e530feac337af52b66ead6a55
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Thu Sep 25 21:16:11 2014 -0500
+
+    Added comments
+
+commit 99cc506d807e60da92a26af1d82f203b925bf70e
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Thu Sep 25 20:24:05 2014 -0500
+
+    made test generator, excluded, updated acceptance teste
+
+commit 2fbb63f1fa1cdac940cc2f4c8d6078d88aa373b3
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Thu Sep 25 20:09:30 2014 -0500
+
+    solution included in UVaVoting
+
+commit 45ad2e87b5fd25fa2b7a7e0d74d9bfb06e268d81
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Thu Sep 25 20:08:32 2014 -0500
+
+    Expanded acceptance tests
+
+commit c033b7263dc48eac27c007ebfa52f894ae856fe5
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Thu Sep 25 18:47:26 2014 -0500
+
+    added RunVoting input
+
+commit 07f0028f8ec3ac4878a0664d95e2a33cbadcde66
+Author: Corin Hill <corin@cs.utexas.edu>
+Date:   Tue Sep 16 13:46:25 2014 -0500
+
+    Created files
+
+commit 3b209b5e286badeec4ff4d4f4242f2a1224de70c
+Author: CorinHill <CorinHill@users.noreply.github.com>
+Date:   Tue Sep 16 13:39:25 2014 -0500
+
+    Initial commit
